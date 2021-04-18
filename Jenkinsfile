@@ -30,7 +30,7 @@ pipeline {
         sh '''aws --debug s3 cp /var/lib/jenkins/workspace/alexa-cicd_master/target/alexa-cicd-0.0.1-SNAPSHOT.war s3://elasticbeanstalk-us-west-2-jenkins/alexa-cicd-0.0.1-SNAPSHOT.war '''
         sh 'aws --debug elasticbeanstalk create-application-version --application-name alexacicd --version-label "alexacicd-jenkins$BUILD_DISPLAY_NAME" --description "Created by $BUILD_TAG"  --source-bundle S3Bucket="elasticbeanstalk-us-west-2-jenkins",S3Key="alexa-cicd-0.0.1-SNAPSHOT.war" '
         //sh 'aws elasticbeanstalk create-environment --environment-name=Alexacicd-env --version-label "alexacicd-jenkins$BUILD_DISPLAY_NAME"'
-        sh 'aws elasticbeanstalk create-environment --application-name alexacicd --environment-name Alexacicd-env --version-label "alexacicd-jenkins$BUILD_DISPLAY_NAME" --solution-stack-name "64bit Amazon Linux 2018.03 v2.9.20 running Python 3.6" --OptionSettings.member.1.Namespace = aws:autoscaling:launchconfiguration --OptionSettings.member.1.OptionName=IamInstanceProfile --OptionSettings.member.1.Value = aws-elasticbeanstalk-ec2-role '
+        sh 'aws elasticbeanstalk create-environment --application-name alexacicd --environment-name Alexacicd-env --version-label "alexacicd-jenkins$BUILD_DISPLAY_NAME" --solution-stack-name "64bit Amazon Linux 2018.03 v2.9.20 running Python 3.6" --option-settings Namespace = aws:autoscaling:launchconfiguration --option-settings OptionName=IamInstanceProfile --option-settings Value = aws-elasticbeanstalk-ec2-role '
      
       }
     }
