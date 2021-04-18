@@ -20,9 +20,6 @@ pipeline {
     stage('Deploy') {
       steps {
         archiveArtifacts 'target/*.war'
-        sh 'sudo -su jenkins'
-        sh 'cd /var/lib/jenkins/'
-        sh 'mkdir .aws'
         sh 'aws --version'
         sh 'aws s3 ls'
         //elasticbeanstalk-us-west-2-jenkins
