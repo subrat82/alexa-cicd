@@ -26,8 +26,7 @@ pipeline {
         //sh 'aws --debug elasticbeanstalk create-application-version --application-name alexacicd --version-label "alexacicd-jenkins$BUILD_DISPLAY_NAME" --description "Created by $BUILD_TAG"  --source-bundle=S3Bucket=elasticbeanstalk-us-east-1-593614531934,S3Key=2018362ew4-alexa-cicd-0.0.1-SNAPSHOT.war'
         //sh 'aws elasticbeanstalk update-environment --environment-name=Alexacicd-env --version-label "alexacicd-jenkins$BUILD_DISPLAY_NAME"'
         
-        //sh '''aws --debug s3 cp /var/lib/jenkins/workspace/alexa-cicd_master/target/alexa-cicd-0.0.1-SNAPSHOT.war s3://elasticbeanstalk-us-west-2-jenkins/alexa-cicd-0.0.1-SNAPSHOT.war 
-'''
+        //sh '''aws --debug s3 cp /var/lib/jenkins/workspace/alexa-cicd_master/target/alexa-cicd-0.0.1-SNAPSHOT.war s3://elasticbeanstalk-us-west-2-jenkins/alexa-cicd-0.0.1-SNAPSHOT.war '''
         sh 'aws --debug elasticbeanstalk create-application-version --application-name alexacicd --version-label "alexacicd-jenkins$BUILD_DISPLAY_NAME" --description "Created by $BUILD_TAG"  --source-bundle=S3Bucket=elasticbeanstalk-us-west-2-jenkins,S3Key=alexa-cicd-0.0.1-SNAPSHOT.war'
         sh 'aws elasticbeanstalk update-environment --environment-name=Alexacicd-env --version-label "alexacicd-jenkins$BUILD_DISPLAY_NAME"'
      
