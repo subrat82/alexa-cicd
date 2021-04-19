@@ -33,7 +33,7 @@ pipeline {
         //sh 'aws elasticbeanstalk create-environment --application-name alexacicd --environment-name Alexacicd-env --version-label "alexacicd-jenkins$BUILD_DISPLAY_NAME" --solution-stack-name "64bit Amazon Linux 2018.03 v2.9.20 running Python 3.6" --option-settings.member.1.Namespace="aws:autoscaling:launchconfiguration" --option-settings.member.1.OptionName="IamInstanceProfile" --option-settings.member.1.Value="aws-elasticbeanstalk-ec2-role" '
         sh 'ls'
         sh 'pwd'
-        sh 'aws elasticbeanstalk update-environment --application-name alexacicd --environment-name Alexacicd-env --version-label "alexacicd-jenkins$BUILD_DISPLAY_NAME" --solution-stack-name "64bit Amazon Linux 2018.03 v3.3.6 running Tomcat 8.5 Java 8" --option-settings=file://options.json '
+        sh 'aws elasticbeanstalk update-environment --application-name alexacicd --environment-name Alexacicd-env --version-label "alexacicd-jenkins$BUILD_DISPLAY_NAME" --solution-stack-name "64bit Amazon Linux 2018.03 v3.4.5 running Tomcat 8.5 Java 8" --option-settings=file://options.json '
       }
     }
   }
